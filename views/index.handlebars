@@ -1,0 +1,21 @@
+<h2 class = "page-header">Welcome {{user}}</h2>
+{{#if errors}}
+ {{#each errors}}
+ <div class = "alert alert-danger">{{msg}}</div>
+ {{/each}}
+ {{/if}}
+<form method = "post" action = "/recipes">
+
+  <div class = "form-group">
+    <div class = "form-group">
+      <label>Search by:</label>
+      <input type = "radio" name="criteria" value = "spices" checked>Spices
+      <input type = "radio" name ="criteria" value = "ingredients">Ingredients
+      <input type = "radio" name ="criteria" value = "recipe_name">Recipe Name
+    </div>
+    <input type = "text" class = "form-control" name = "searchRequest" placeholder="..." onfocus="document.searchBySpice.value" = "">
+  </div>
+
+  <button type = "submit" class= "btn btn-default">Search</button>
+
+</form>

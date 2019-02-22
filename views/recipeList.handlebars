@@ -1,0 +1,8 @@
+<h2 class = "page-header">Recipes</h2>
+<form>
+  {{#each recipe}}
+  <div class = "form-group">
+    <a href = "recipeDetails/recipe_id?id={{this._id}}">{{this.recipe_name}}</a></p>
+  </div>
+    {{/each}}
+</form>

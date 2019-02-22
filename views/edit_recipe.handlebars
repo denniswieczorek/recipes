@@ -1,0 +1,83 @@
+<h2 class = "page-header">Edit Recipe </h2>
+
+{{#if errors}}
+  {{#each errors}}
+  <div class = "alert alert-danger">{{msg}}</div>
+  {{/each}}
+  {{/if}}
+
+
+<form method = "post" action="/recipes/recipeDetails/edit/recipe_id?id={{recipe._id}}">
+
+  <div class = "form-group">
+    <label> Recipe Name </label>
+    <input type="text" class = "form-control" value="{{recipe.recipe_name}}" name = "recipe_name">
+  </div>
+
+
+    <div class = "form-group">
+      <label> Category </label>
+      <select name = "category" class = "form-control">
+        <option value = "{{recipe.category}}" > Keep current..{{recipe.category}} </option>
+        <option value = "Main Course" > Main Course </option>
+        <option value = "Side Dish" > Side Dish </option>
+        <option value = "Appetizer" >Appetizer </option>
+        <option value = "Soup" > Soup </option>
+        <option value = "Desert" >Desert </option>
+        <option value = "Breakfast" > Breakfast </option>
+        <option value = "Lunch" > Lunch </option>
+      </select>
+    </div>
+
+
+        <div class = "form-group">
+          <label> Spiciness </label>
+          <select name = "spiciness" class = "form-control">
+            <option value = "{{recipe.spiciness}}" > Keep Current.. {{recipe.spiciness}} </option>
+            <option value = "Mild" > Mild </option>
+            <option value = "Medium" > Medium </option>
+            <option value = "Hot" > Hot </option>
+            <option value = "Made to taste">Made to taste </option>
+          </select>
+        </div>
+
+        <div class = "form-group">
+          <label>Description </label>
+          <textarea rows="4" name = "description" class = "form-control">{{recipe.description}}</textarea>
+        </div>
+
+
+        <div class = "form-group">
+          <label>Spices </label>
+
+          <textarea rows="4" name = "spices" class = "form-control">{{#each recipe.spices}}{{this}}& {{/each}}</textarea>
+
+        </div>
+
+
+
+        <div class = "form-group">
+          <label>Ingredients </label>
+          <textarea rows="4" name = "ingredients" class = "form-control">{{#each recipe.ingredients}}{{this}}& {{/each}}</textarea>
+        </div>
+
+        <div class = "form-group">
+          <label>Instructions </label>
+          <textarea rows="4" name = "directions" class = "form-control" >{{recipe.directions}}</textarea>
+        </div>
+
+
+        <div class = "form-group">
+          <label> Source </label>
+          <input type="text" class = "form-control" value="{{recipe.source}}" name = "source">
+        </div>
+
+        <div class = "form-group">
+          <label>Optional: Upload a photo </label>
+          <input type = "file"  name ="picture" accept="image/*">
+
+        </div>
+        <button type = "submit" class = "btn btn-default">Save Changes</button>
+
+
+</form>
